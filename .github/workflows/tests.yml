@@ -21,6 +21,8 @@ jobs:
     name: integration-tests (PHP ${{ matrix.php-versions }})
     steps:
       - uses: actions/checkout@v1
+      - name: Create OCI private key file
+        run: echo "${{ secrets.OCI_PRIVATE_KEY }}" > private_key.pem
       - name: Install PHP
         uses: shivammathur/setup-php@v2
         with:
